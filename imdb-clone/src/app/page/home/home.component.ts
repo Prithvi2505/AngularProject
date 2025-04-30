@@ -13,12 +13,14 @@ import { mapToMovie } from '../../type/tvshow';
 })
 export class HomeComponent implements OnInit {
 
+  popularMovies$ !: Observable<Movie[]>
   upcomingMovies$ !: Observable<Movie[]>
   topRatedMovies$ !: Observable<Movie[]>  
   populartvShow$ !: Observable<Movie[]>
   constructor(private moviesService:MoviesService, private tvShowService:TvShowService) {}
 
   ngOnInit() {
+    this.popularMovies$ = this.moviesService.getMovieByType('popular');
     this.upcomingMovies$ = this.moviesService.getMovieByType('upcoming',12);
     this.topRatedMovies$ = this.moviesService.getMovieByType('top_rated',12);
     this.populartvShow$ = this.tvShowService.getTvShowByType('popular',12).pipe(

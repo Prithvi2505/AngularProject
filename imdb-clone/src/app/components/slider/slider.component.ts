@@ -7,7 +7,7 @@ import {
   transition,
   animate
 } from '@angular/animations';
-import { Component, OnInit} from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
 import { Movie, MovieDto } from '../../type/movie';
 import { imageBaseUrl } from '../../type/image_size';
 
@@ -27,15 +27,19 @@ import { imageBaseUrl } from '../../type/image_size';
 })
 export class SliderComponent implements OnInit {
 
-  movies$ !:Observable<Movie[]>
+  @Input() slides : Movie[] = []
+  @Input() isHeader = false
+  
   slideIndex = 0 ;
   baseUrl = imageBaseUrl;
- constructor(private moviesService : MoviesService) {}
+ 
  ngOnInit(){
+  if(!this.isHeader){
    this.changeSlide();
+  }
  }
   changeSlide() {
-    this.movies$ = this.moviesService.getMovieByType('popular')
+    // this.movies$ = this.moviesService.getMovieByType('popular')
    setInterval(() => {
     this.slideIndex += 1;
     if(this.slideIndex > 10){

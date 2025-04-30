@@ -14,6 +14,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BannerComponent } from './components/banner/banner.component';
 import { ShowItemComponent } from './components/show-item/show-item.component';
+import { ShowDetailComponent } from './page/show-detail/show-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,13 +27,14 @@ import { ShowItemComponent } from './components/show-item/show-item.component';
     GenersComponent,
     SliderComponent,
     BannerComponent,
-    ShowItemComponent
+    ShowItemComponent,
+    ShowDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
